@@ -61,8 +61,8 @@ const questions = [
  */
 function createTag(tagName) {
   console.log(chalk.green(`Tagging the repo with ${tagName}...`));
-  child.execSync(`git tag -a ${tagName} -m "Release ${tagName}"`);
-  child.execSync('git push --tags');
+  child.execFileSync('git', ['tag', '-a', tagName, '-m', `Release ${tagName}`]);
+  child.execFileSync('git', ['push', '--tags']);
 }
 
 /**
